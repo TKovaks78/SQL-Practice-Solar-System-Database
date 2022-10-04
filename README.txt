@@ -1,0 +1,11 @@
+SQL – Data model and explanation – Solar System 
+
+The model consists of the information regarding the key objects that are present in the solar system. The model is normalised and has data is stored in multiple tables, each relating to an aspect of the solar system.  
+
+The initial table is the Objects of Solar System, which defines the 4 keys objects, namely Stars, Suns, Planets and Dwarf Planets, and forms the base for the entire model. The descriptors for each of these keys are stored in the Object Details table, which is a lookup table. The Object_details forms the primary key for this table, and acts as the Foreign key for the Stars (Star_ID), Comets (Comet_ID), Planets (Planet_ID) and Dwarf Planets (Dwarf_planet_ID).  
+
+Details about the various stars are captured in the Stars table, including their weight, diameter and element composition. Similarly, Dwarf Planets captures the data related to the smaller planets, with the same key attributes as the stars. Comets describes each comet with its main characteristic of speed.  
+
+The Planets table, which forms the majority of the model, contains all the attributes important to understand a planet in detail, including rotation, revolution, and distance to the sun. To normalise the model, additional information has been stored in other linked tables, including Planet Metrics (capturing diameter, weight, and gravity), Moons (describing each of the moons of the planet) and Human Satellites launched to each planet. The discovery of each planet is stored in the Planet Discovery table, and all the information regarding the discoverer is stored in the Discoverers table. These two tables are linked via Discoverer ID, which acts as Foreign Key in the Planet Discovery table, and Primary Key in the Discoverers table.  
+
+Since multiple metrics are used across the model, the lookup table of Metrics contains the description of each metric. The element_composition table highlights the composition of each planet in terms of their key elements and their mass, while the lookup table of elements describes the elements referenced.  
